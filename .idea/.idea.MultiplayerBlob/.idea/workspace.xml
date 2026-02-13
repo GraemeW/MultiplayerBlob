@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="db7e25f4-9428-4163-883e-aa3ddb11a1a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BlobAgentMoverIntrinsic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BlobAgentMoverIntrinsic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Blob/Blob.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Blob/Blob.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Blob/BlobMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Blob/BlobMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/LateralMovementRadialShear.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/LateralMovementRadialShear.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/RotatingContinuousSin.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/RotatingContinuousSin.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,10 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Blob/BlobAgentMoverAbstract.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Blob/BlobAgentMoverExtrinsic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Blob/BlobMover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/InputControllerLocal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/MovementContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/MovementType.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="39aXE0jCaIvh5PfY2RXzd3HgFnP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,8 +39,14 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -76,6 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770935040676</updated>
       <workItem from="1770935042156" duration="116000" />
+      <workItem from="1770993698634" duration="12785000" />
     </task>
     <servers />
   </component>
@@ -88,6 +109,7 @@
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

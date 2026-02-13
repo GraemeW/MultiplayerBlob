@@ -10,7 +10,7 @@ namespace Blob
     {
         // Tunables
         [Header("Blob Properties")]
-        [SerializeField] private float blobMoveSpeed = 10f;
+        [SerializeField] private float blobMoveSpeed = 50f;
         [Header("Agent Properties")]
         [SerializeField] private float extrinsicAgentExtents = 25f;
         [SerializeField] private float extrinsicAgentMoveSpeed = 100f;

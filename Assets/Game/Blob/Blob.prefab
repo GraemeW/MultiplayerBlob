@@ -155,6 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021e4e2ec7434f1f880d0def7000d6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Blob.BlobMover
+  blobMoveSpeed: 50
+  extrinsicAgentExtents: 25
+  extrinsicAgentMoveSpeed: 100
+  intrinsicAgentExtents: 15
+  intrinsicAgentMovementSpeed: 30
 --- !u!1001 &867884890854667370
 PrefabInstance:
   m_ObjectHideFlags: 0
