@@ -1,12 +1,12 @@
+using Blob;
 using UnityEngine;
 
 namespace MultiplayerBlob
 {
-    public class BlobAgentMoverIntrinsic : MonoBehaviour
+    public class BlobAgentMoverIntrinsic : BlobAgentMoverAbstract
     {
-        // Tunables
-        [SerializeField][Tooltip("how far the agent will travel")][Min(0.1f)] private float traverseExtents = 15f;
-        [SerializeField][Tooltip("the time for the blob to traverse extents")] private float periodSeconds = 0.5f;
+        // Derived Parameters
+        private float periodSeconds = 0.5f;
 
         // State
         private float angleAdjustTimer;
@@ -22,10 +22,19 @@ namespace MultiplayerBlob
         
         private void Update()
         {
-            bool shouldMoveTowardCentre = DidExceedExtents();
+            if (!isInitialized) { return; }
+            bool shouldMoveTowardCentre = DoesExceedExtents(transform.localPosition);
             UpdateMovementAngle(shouldMoveTowardCentre);
-            UpdateIncrements();
             ShiftAgentPosition();
+        }
+        #endregion
+        
+        #region PublicProtectedMethods
+
+        public override void Initialize(float setTraverseExtents, float setMovementSpeed)
+        {
+            base.Initialize(setTraverseExtents, setMovementSpeed);
+            periodSeconds = setTraverseExtents / setMovementSpeed;
         }
         #endregion
 
@@ -37,22 +46,21 @@ namespace MultiplayerBlob
             if (forceTowardCentre)
             {
                 orientationAngle = Mathf.Atan2(-transform.localPosition.y, -transform.localPosition.x);
+                UpdateIncrements();
             }
             else
             {
                 if (angleAdjustTimer < periodSeconds) { return; }
                 orientationAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+                UpdateIncrements();
                 angleAdjustTimer = 0;
             }
         }
         
         private void UpdateIncrements()
         {
-            // TODO:  Move UpdateIncrements into UpdateMovementAngle (after updating angle) - once parameters more settled
-            if (periodSeconds <= 0) { return; }
-            
-            xIncrement = Mathf.Cos(orientationAngle) * traverseExtents / periodSeconds;
-            yIncrement = Mathf.Sin(orientationAngle) * traverseExtents /  periodSeconds;
+            xIncrement = Mathf.Cos(orientationAngle) * movementSpeed;
+            yIncrement = Mathf.Sin(orientationAngle) * movementSpeed;
         }
 
         private void ShiftAgentPosition()
@@ -61,12 +69,6 @@ namespace MultiplayerBlob
                 transform.localPosition.x + xIncrement * Time.deltaTime,
                 transform.localPosition.y + yIncrement * Time.deltaTime,
                 transform.localPosition.z);
-        }
-        
-        private bool DidExceedExtents()
-        {
-            // TODO:  Move traverseExtents power calculation to Awake - once parameters more settled
-            return Mathf.Pow(transform.localPosition.x, 2) + Mathf.Pow(transform.localPosition.y, 2) > Mathf.Pow(traverseExtents,2);
         }
         #endregion
     }

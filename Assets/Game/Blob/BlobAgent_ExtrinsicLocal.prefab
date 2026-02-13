@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 8197441952531475922}
   - component: {fileID: 5081045298841853687}
   m_Layer: 0
-  m_Name: BlobAgent_Extrinsic
+  m_Name: BlobAgent_ExtrinsicLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

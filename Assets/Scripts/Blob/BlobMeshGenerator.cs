@@ -16,8 +16,8 @@ namespace MultiplayerBlob
         private MeshFilter meshFilter;
 
         #region StaticMethods
-        private static string blobSortingLayerRef = "Blob";
-        
+        private const string _blobSortingLayerRef = "Blob";
+
         private static List<List<int>> GenerateTriangles(IList<int> pointIndices)
         {
             List<List<int>> combinations = new();
@@ -46,7 +46,7 @@ namespace MultiplayerBlob
 
         private void Start()
         {
-            meshRenderer.sortingLayerName = blobSortingLayerRef;
+            meshRenderer.sortingLayerName = _blobSortingLayerRef;
             meshRenderer.sortingOrder = 0;
         }
 

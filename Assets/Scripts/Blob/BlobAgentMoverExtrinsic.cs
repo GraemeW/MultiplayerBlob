@@ -1,14 +1,12 @@
+using Blob;
 using MultiplayerBlob.Controllers;
 using UnityEngine;
 
 namespace MultiplayerBlob.Blob
 {
     [RequireComponent(typeof(InputControllerAbstract))]
-    public class BlobAgentMoverExtrinsic : MonoBehaviour
+    public class BlobAgentMoverExtrinsic : BlobAgentMoverAbstract
     {
-        // Input
-        [SerializeField] private float movementSpeed = 100f;
-        
         // State
         private float xLookDirection;
         private float yLookDirection;
@@ -29,6 +27,7 @@ namespace MultiplayerBlob.Blob
 
         private void Update()
         {
+            if (!isInitialized) { return; }
             Move();
         }
 
@@ -47,6 +46,8 @@ namespace MultiplayerBlob.Blob
         #region PrivateMethods
         private void HandleMovement(MovementContext movementContext)
         {
+            if (!isInitialized) { return; }
+            
             switch (movementContext.movementType)
             {
                 case MovementType.Move:
@@ -67,10 +68,13 @@ namespace MultiplayerBlob.Blob
         private void Move()
         {
             if (Mathf.Approximately(xLookDirection, 0f) && Mathf.Approximately(yLookDirection, 0f)) { return; }
-            transform.localPosition = new Vector3(
+
+            var newLocalPosition = new Vector2(
                 transform.localPosition.x + xLookDirection * movementSpeed * Time.deltaTime,
-                transform.localPosition.y + yLookDirection * movementSpeed * Time.deltaTime,
-                transform.localPosition.z);
+                transform.localPosition.y + yLookDirection * movementSpeed * Time.deltaTime);
+            if (DoesExceedExtents(newLocalPosition)) { return; }
+            
+            transform.localPosition = newLocalPosition;
         }
 
         private void Jump()

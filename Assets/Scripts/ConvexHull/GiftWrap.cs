@@ -17,11 +17,11 @@ namespace ConvexHull
             }
 
             var hull = new List<Vector3>();
-            int p = leftmost, q;
+            int p = leftmost;
             do
             {
                 hull.Add(points[p]);
-                q = (p + 1) % n;
+                var q = (p + 1) % n;
                 for (int i = 0; i < n; i++)
                 {
                     if (GetGiftWrapOrientation(points[p], points[i], points[q]) == GiftWrapOrientation.CounterClockwise)
